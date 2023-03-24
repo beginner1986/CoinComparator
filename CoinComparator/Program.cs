@@ -24,9 +24,13 @@ internal class Program
         Mat imgCanny = new();
         CvInvoke.Canny(imgBlur, imgCanny, 50, 100);
 
+        Mat imgThreshold = new();
+        CvInvoke.Threshold(imgCanny, imgThreshold, 100, 200, ThresholdType.BinaryInv);
+
         CvInvoke.Imshow("Input image", img);
-        CvInvoke.Imshow("Output image", imgSobel);
-        CvInvoke.Imshow("Output image2", imgCanny);
+        CvInvoke.Imshow("Output image - Sobel edges", imgSobel);
+        CvInvoke.Imshow("Output image - Canny edges", imgCanny);
+        CvInvoke.Imshow("Output image - Canny Threshold", imgThreshold);
         CvInvoke.WaitKey(0);
         CvInvoke.DestroyAllWindows();
     }
