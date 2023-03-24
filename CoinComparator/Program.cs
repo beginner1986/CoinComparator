@@ -7,10 +7,14 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        Mat img = CvInvoke.Imread("test_img.png");
+        string fileName = "test_img.png";
+        Mat img = CvInvoke.Imread(fileName);
 
         if (img is null)
+        {
+            Console.WriteLine($"Failed to open file {fileName}");
             return;
+        }
 
         Mat imgGray = new();
         CvInvoke.CvtColor(img, imgGray, ColorConversion.Bgr2Gray);
