@@ -26,7 +26,7 @@ internal class Program
         CvInvoke.Sobel(imgBlur, imgSobel, DepthType.Cv64F, 0, 1, 3);
         
         Mat imgCanny = new();
-        CvInvoke.Canny(imgBlur, imgCanny, 50, 100);
+        CvInvoke.Canny(imgBlur, imgCanny, 50, 100, 3, true);
 
         Mat imgThreshold = new();
         CvInvoke.Threshold(imgCanny, imgThreshold, 100, 200, ThresholdType.BinaryInv);
